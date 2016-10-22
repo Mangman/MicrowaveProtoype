@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define PLACE place(__FILE__, __LINE__, __PRETTY_FUNCTION__)
+
 struct place
 {
     char* file_;

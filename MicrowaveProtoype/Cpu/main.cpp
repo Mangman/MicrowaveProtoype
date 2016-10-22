@@ -8,6 +8,8 @@
 
 #include "Stack.h"
 #include "MyException.h"
+
+#include "FileReader.h"
 int main()
 {
     try
