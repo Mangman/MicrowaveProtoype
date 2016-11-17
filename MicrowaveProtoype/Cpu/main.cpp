@@ -6,10 +6,11 @@
 
 #include <string.h>
 
-#include "Stack.h"
 #include "MyException.h"
 
 #include "FileReader.h"
+
+#include "CPU.h"
 int main()
 {
     try

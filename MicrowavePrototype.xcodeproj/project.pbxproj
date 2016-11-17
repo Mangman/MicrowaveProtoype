@@ -43,6 +43,9 @@
 		842541121DBBB20E00FCFC5E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		842541171DBBB35200FCFC5E /* Assembler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembler.h; sourceTree = "<group>"; };
 		842541181DBBB71200FCFC5E /* FileReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileReader.h; path = ../Assembler/FileReader.h; sourceTree = "<group>"; };
+		8479138F1DDE2509009EE697 /* CPU.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPU.h; sourceTree = "<group>"; };
+		847913901DDE26C9009EE697 /* Register.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Register.h; sourceTree = "<group>"; };
+		847913921DDE3475009EE697 /* code.lal */ = {isa = PBXFileReference; lastKnownFileType = text; name = code.lal; path = "../../../Library/Developer/Xcode/DerivedData/MicrowavePrototype-fdgguelkaqzcpcblhbhzalgszsmo/Build/Products/Debug/code.lal"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				842540F41DBBA98100FCFC5E /* MicrowavePrototype */,
+				8479138E1DDE23D9009EE697 /* Data structures */,
 				842541111DBBB20E00FCFC5E /* Assembler */,
 				842540F31DBBA98100FCFC5E /* Products */,
+				847913921DDE3475009EE697 /* code.lal */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,9 +99,8 @@
 		842540FC1DBBA9F000FCFC5E /* CPU */ = {
 			isa = PBXGroup;
 			children = (
-				842541081DBBB19F00FCFC5E /* HeapArray.h */,
 				842541091DBBB19F00FCFC5E /* main.cpp */,
-				8425410A1DBBB19F00FCFC5E /* Stack.h */,
+				8479138F1DDE2509009EE697 /* CPU.h */,
 			);
 			name = CPU;
 			sourceTree = "<group>";
@@ -118,6 +122,17 @@
 				842541171DBBB35200FCFC5E /* Assembler.h */,
 			);
 			path = Assembler;
+			sourceTree = "<group>";
+		};
+		8479138E1DDE23D9009EE697 /* Data structures */ = {
+			isa = PBXGroup;
+			children = (
+				842541081DBBB19F00FCFC5E /* HeapArray.h */,
+				8425410A1DBBB19F00FCFC5E /* Stack.h */,
+				847913901DDE26C9009EE697 /* Register.h */,
+			);
+			name = "Data structures";
+			path = MicrowaveProtoype;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

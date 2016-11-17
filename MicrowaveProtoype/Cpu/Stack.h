@@ -44,7 +44,7 @@ namespace mah
         }
         
         //MARK: Methods
-        void push(int);
+        void push(valType);
         valType pop();
         
         void dump();
@@ -56,7 +56,7 @@ namespace mah
 using namespace mah;
 
 template <typename valType>
-void Stack<valType>::push (int val)
+void Stack<valType>::push (valType val)
 {
     CHECK_STACK
     

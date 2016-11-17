@@ -8,7 +8,7 @@
 
 class Assembler {
 private:
-    //MARK: Meembers
+    //MARK: Members
     
     //TODO: даблы
     int* codes;
@@ -52,9 +52,10 @@ Assembler::~Assembler() {
 }
 
 bool Assembler::assemble() {
-    
-    for (char* currentWord = nullptr; strcmp(currentWord, "end") != true ;fscanf(file, "%s", currentWord)) {
-        
+    //Magic constant
+    for (char* currentWord = new char[10] ; strcmp(currentWord, "end") != 0;) {
+        fscanf(file, "%s", currentWord);
+        printf ("%s %d\n", currentWord, strcmp(currentWord, "end"));
     }
     
     return true;

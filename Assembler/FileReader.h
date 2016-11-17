@@ -10,6 +10,7 @@ class FileReader {
     
 private:
     dataType* data;
+    long int fileSize;
     FILE* file;
     bool gaveData = false;
     
@@ -29,13 +30,13 @@ public:
     bool loadFile();
     
     inline dataType* getData ();
+    inline long int getSize () {return fileSize;}
 };
 
 template <typename dataType>
 bool FileReader<dataType>::loadFile() {
-    data = new dataType [25];
     fseek(file , 0 , SEEK_END);
-    long fileSize = ftell(file);
+    long int fileSize = ftell(file);
     rewind (file);
     
     data = new dataType(sizeof(dataType)*fileSize);
