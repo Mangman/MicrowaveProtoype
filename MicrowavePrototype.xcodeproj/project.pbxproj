@@ -42,10 +42,12 @@
 		842541101DBBB20E00FCFC5E /* Assembler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assembler; sourceTree = BUILT_PRODUCTS_DIR; };
 		842541121DBBB20E00FCFC5E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		842541171DBBB35200FCFC5E /* Assembler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembler.h; sourceTree = "<group>"; };
-		842541181DBBB71200FCFC5E /* FileReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileReader.h; path = ../Assembler/FileReader.h; sourceTree = "<group>"; };
 		8479138F1DDE2509009EE697 /* CPU.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPU.h; sourceTree = "<group>"; };
 		847913901DDE26C9009EE697 /* Register.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Register.h; sourceTree = "<group>"; };
 		847913921DDE3475009EE697 /* code.lal */ = {isa = PBXFileReference; lastKnownFileType = text; name = code.lal; path = "../../../Library/Developer/Xcode/DerivedData/MicrowavePrototype-fdgguelkaqzcpcblhbhzalgszsmo/Build/Products/Debug/code.lal"; sourceTree = "<group>"; };
+		84B5B8C31DDF47270008062B /* AsmCmd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsmCmd.h; sourceTree = "<group>"; };
+		84B5B8C51DDF7B5C0008062B /* commands.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commands.h; sourceTree = "<group>"; };
+		84C9B9FB1DDF807E00E0ED51 /* CommandsEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandsEnum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				842541031DBBAA0300FCFC5E /* Additional */,
 				842540FC1DBBA9F000FCFC5E /* CPU */,
+				84B5B8C31DDF47270008062B /* AsmCmd.h */,
 			);
 			name = MicrowavePrototype;
 			path = MicrowaveProtoype;
@@ -110,7 +113,7 @@
 			children = (
 				842540FF1DBBAA0000FCFC5E /* MyException.h */,
 				842541001DBBAA0000FCFC5E /* Print.h */,
-				842541181DBBB71200FCFC5E /* FileReader.h */,
+				84C9B9FB1DDF807E00E0ED51 /* CommandsEnum.h */,
 			);
 			name = Additional;
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 			children = (
 				842541121DBBB20E00FCFC5E /* main.cpp */,
 				842541171DBBB35200FCFC5E /* Assembler.h */,
+				84B5B8C51DDF7B5C0008062B /* commands.h */,
 			);
 			path = Assembler;
 			sourceTree = "<group>";

@@ -6,20 +6,18 @@
 #include "Stack.h"
 #include "Register.h"
 #include "MyException.h"
+//#include "FileReader.h"
 
-#define PLACE place(__FILE__, __LINE__, __PRETTY_FUNCTION__)
-
-
-template <class stackValType, class registerType>
+template <typename stackValType, typename registerType, int numberOfRegisters>
 class CPU {
 private :
     Stack<stackValType> cpu_stack;
-    HeapArray<int> codes;
+    char* codes;
     HeapArray<Register<registerType>> registers;
     
 public :
     
-    CPU ();
+    CPU (const char* inputFilePath);
     
     CPU( const CPU& other ) {
         throw my_exception("you cant copy it.\n for the present", nullptr, PLACE);
@@ -28,9 +26,26 @@ public :
         throw my_exception("you cant move it.\n for the present", nullptr, PLACE);
     }
     
+    bool execute();
 };
 
-
-#undef PLACE
+template <typename stackValType, typename registerType, int numberOfRegisters>
+CPU<stackValType, registerType, numberOfRegisters>::CPU(const char* inputFilePath):
+    cpu_stack(Stack<stackValType>()), codes(nullptr), registers(HeapArray<Register<registerType>>(numberOfRegisters)) {
+        //  Только чиселки
+        for (int i = 0; i < numberOfRegisters; i++) {
+            registers[i].push(0);
+        }
+        
+        FILE* file = fopen(inputFilePath, "r");
+        
+        fseek(file , 0 , SEEK_END);
+        long int fileSize = ftell(file);
+        rewind (file);
+        
+        codes = new char [fileSize/sizeof(char)];
+        
+        fread(codes, sizeof(char), fileSize/sizeof(char), file);
+}
 
 #endif /* CPU_h */

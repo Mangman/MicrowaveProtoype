@@ -8,7 +8,6 @@
 #include "Print.h"
 
 #define CHECK_STACK checkForExtension(); if(bad()) throw my_exception("not ok", nullptr, PLACE); 
-#define PLACE place(__FILE__, __LINE__, __PRETTY_FUNCTION__)
 
 namespace mah
 {

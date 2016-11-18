@@ -4,7 +4,9 @@
 #define Assembler_h
 
 #include <string.h>
+
 #include "MyException.h"
+#include "CommandsEnum.h"
 
 class Assembler {
 private:
@@ -30,7 +32,7 @@ public:
 
     //MARK: Methods
     bool assemble ();
-    int* getMachineCodes ();
+    
 };
 
 Assembler::Assembler(char* filePath):
@@ -53,13 +55,110 @@ Assembler::~Assembler() {
 
 bool Assembler::assemble() {
     //Magic constant
-    for (char* currentWord = new char[10] ; strcmp(currentWord, "end") != 0;) {
+    
+    FILE* output = fopen("output.tttt", "w");
+    
+    char* currentWord = new char[10];
+    int* codes = new int [1];
+    for (;;) {
         fscanf(file, "%s", currentWord);
-        printf ("%s %d\n", currentWord, strcmp(currentWord, "end"));
+        
+        if (strcmp(currentWord, "push") == 0) {
+            codes[0] = commands::CMD_PUSH;
+            fwrite(codes, sizeof(char), 1, output);
+            
+            fscanf(file, "%s", currentWord);
+            
+            if (currentWord[1] == 'x') {
+                codes[0] = 1;
+                fwrite(codes, sizeof(char), 1, output);
+                
+                codes[0] = currentWord[0];
+                fwrite(codes, sizeof(char), 1, output);
+            }
+            else {
+                codes[0] = 0;
+                fwrite(codes, sizeof(char), 1, output);
+                //  Не понял зачем это
+                char* end;
+                codes[0] = int(strtol(currentWord, &end, 10));
+                fwrite(codes, sizeof(int), 1, output);
+                }
+        }
+        else if (strcmp(currentWord, "pop") == 0) {
+            codes[0] = commands::CMD_POP;
+            fwrite(codes, sizeof(char), 1, output);
+            
+            long currentPos = ftell(file);
+            
+            fscanf(file, "%s", currentWord);
+            
+            if (currentWord[1] == 'x') {
+                codes[0] = 1;
+                fwrite(codes, sizeof(char), 1, output);
+                
+                codes[0] = currentWord[0];
+                fwrite(codes, sizeof(char), 1, output);
+            }
+            else {
+                codes[0] = 0;
+                fwrite(codes, sizeof(char), 1, output);
+
+                fseek(file, currentPos, SEEK_SET);
+            }
+        }
+        else if ((strcmp(currentWord, "jmp") == 0)) {
+            codes[0] = commands::CMD_JMP;
+            fwrite(codes, sizeof(char), 1, output);
+            
+            fscanf(file, "%s", currentWord);
+
+            char* end;
+            codes[0] = int(strtol(currentWord, &end, 10));
+            fwrite(codes, sizeof(char), 1, output);
+        }
+        else if (currentWord[0] == ':') {
+            codes[0] = commands::CMD_LBL;
+            fwrite(codes, sizeof(char), 1, output);
+            
+            char* oldPtr = currentWord;
+            currentWord = &(currentWord[1]);
+            
+            char* end;
+            codes[0] = int(strtol(currentWord, &end, 10));
+            fwrite(codes, sizeof(char), 1, output);
+            
+            currentWord = oldPtr;
+        }
+        //  Сделать дефайнами
+        else if ((strcmp(currentWord, "add") == 0)) {
+            codes[0] = commands::CMD_ADD;
+            fwrite(codes, sizeof(char), 1, output);
+        }
+        else if ((strcmp(currentWord, "sub") == 0)) {
+            codes[0] = commands::CMD_SUB;
+            fwrite(codes, sizeof(char), 1, output);
+        }
+        else if ((strcmp(currentWord, "mul") == 0)) {
+            codes[0] = commands::CMD_MUL;
+            fwrite(codes, sizeof(char), 1, output);
+        }
+        else if ((strcmp(currentWord, "div") == 0)) {
+            codes[0] = commands::CMD_DIV;
+            fwrite(codes, sizeof(char), 1, output);
+        }
+        else if (strcmp(currentWord, "end")  == 0) {
+            codes[0] = commands::CMD_END;
+            fwrite(codes, sizeof(char), 1, output);
+            break;
+        }
+        else {
+            exit(228);
+        }
     }
     
+    fclose(output);
     return true;
 }
-
 
 #endif /* Assembler_h_h */

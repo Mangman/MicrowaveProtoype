@@ -4,7 +4,6 @@
 #define HeapArray_h
 
 #define CHECK_ARRAY if (bad()) throw my_exception("not ok", nullptr, PLACE);
-#define PLACE place(__FILE__, __LINE__, __PRETTY_FUNCTION__)
 
 #include <stdio.h>
 
@@ -21,7 +20,7 @@ public:
     
     //MARK: Constructors
     explicit HeapArray():
-    data(new valType [0]), size(size)
+    data(new valType [0]), size(15)
     {}
     explicit HeapArray(int size):
     data(new valType [size]), size(size)
@@ -93,6 +92,5 @@ void HeapArray<valType>::extend() {
 }
 
 #undef CHECK_ARRAY
-#undef PLACE
 
 #endif
