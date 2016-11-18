@@ -8,7 +8,6 @@
 #include "Print.h"
 
 #define CHECK_STACK checkForExtension(); if(bad()) throw my_exception("not ok", nullptr, PLACE); 
-#define PLACE place(__FILE__, __LINE__, __PRETTY_FUNCTION__)
 
 namespace mah
 {
@@ -44,7 +43,7 @@ namespace mah
         }
         
         //MARK: Methods
-        void push(int);
+        void push(valType);
         valType pop();
         
         void dump();
@@ -56,7 +55,7 @@ namespace mah
 using namespace mah;
 
 template <typename valType>
-void Stack<valType>::push (int val)
+void Stack<valType>::push (valType val)
 {
     CHECK_STACK
     

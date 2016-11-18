@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "842540F11DBBA98100FCFC5E"
-               BuildableName = "MicrowaveProtoype"
-               BlueprintName = "MicrowaveProtoype"
-               ReferencedContainer = "container:MicrowaveProtoype.xcodeproj">
+               BlueprintIdentifier = "8425410F1DBBB20E00FCFC5E"
+               BuildableName = "Assembler"
+               BlueprintName = "Assembler"
+               ReferencedContainer = "container:MicrowavePrototype.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "842540F11DBBA98100FCFC5E"
-            BuildableName = "MicrowaveProtoype"
-            BlueprintName = "MicrowaveProtoype"
-            ReferencedContainer = "container:MicrowaveProtoype.xcodeproj">
+            BlueprintIdentifier = "8425410F1DBBB20E00FCFC5E"
+            BuildableName = "Assembler"
+            BlueprintName = "Assembler"
+            ReferencedContainer = "container:MicrowavePrototype.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "842540F11DBBA98100FCFC5E"
-            BuildableName = "MicrowaveProtoype"
-            BlueprintName = "MicrowaveProtoype"
-            ReferencedContainer = "container:MicrowaveProtoype.xcodeproj">
+            BlueprintIdentifier = "8425410F1DBBB20E00FCFC5E"
+            BuildableName = "Assembler"
+            BlueprintName = "Assembler"
+            ReferencedContainer = "container:MicrowavePrototype.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "842540F11DBBA98100FCFC5E"
-            BuildableName = "MicrowaveProtoype"
-            BlueprintName = "MicrowaveProtoype"
-            ReferencedContainer = "container:MicrowaveProtoype.xcodeproj">
+            BlueprintIdentifier = "8425410F1DBBB20E00FCFC5E"
+            BuildableName = "Assembler"
+            BlueprintName = "Assembler"
+            ReferencedContainer = "container:MicrowavePrototype.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

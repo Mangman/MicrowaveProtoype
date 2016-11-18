@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		842541021DBBAA0000FCFC5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842540FE1DBBAA0000FCFC5E /* main.cpp */; };
+		8425410B1DBBB19F00FCFC5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842541091DBBB19F00FCFC5E /* main.cpp */; };
+		842541131DBBB20E00FCFC5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842541121DBBB20E00FCFC5E /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,19 +21,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		8425410E1DBBB20E00FCFC5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		842540F21DBBA98100FCFC5E /* MicrowaveProtoype */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MicrowaveProtoype; sourceTree = BUILT_PRODUCTS_DIR; };
-		842540FD1DBBAA0000FCFC5E /* HeapArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapArray.h; sourceTree = "<group>"; };
-		842540FE1DBBAA0000FCFC5E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		842540F21DBBA98100FCFC5E /* MicrowavePrototype */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MicrowavePrototype; sourceTree = BUILT_PRODUCTS_DIR; };
 		842540FF1DBBAA0000FCFC5E /* MyException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyException.h; sourceTree = "<group>"; };
 		842541001DBBAA0000FCFC5E /* Print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Print.h; sourceTree = "<group>"; };
-		842541011DBBAA0000FCFC5E /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		842541081DBBB19F00FCFC5E /* HeapArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeapArray.h; path = Cpu/HeapArray.h; sourceTree = "<group>"; };
+		842541091DBBB19F00FCFC5E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Cpu/main.cpp; sourceTree = "<group>"; };
+		8425410A1DBBB19F00FCFC5E /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack.h; path = Cpu/Stack.h; sourceTree = "<group>"; };
+		842541101DBBB20E00FCFC5E /* Assembler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assembler; sourceTree = BUILT_PRODUCTS_DIR; };
+		842541121DBBB20E00FCFC5E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		842541171DBBB35200FCFC5E /* Assembler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembler.h; sourceTree = "<group>"; };
+		8479138F1DDE2509009EE697 /* CPU.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPU.h; sourceTree = "<group>"; };
+		847913901DDE26C9009EE697 /* Register.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Register.h; sourceTree = "<group>"; };
+		847913921DDE3475009EE697 /* code.lal */ = {isa = PBXFileReference; lastKnownFileType = text; name = code.lal; path = "../../../Library/Developer/Xcode/DerivedData/MicrowavePrototype-fdgguelkaqzcpcblhbhzalgszsmo/Build/Products/Debug/code.lal"; sourceTree = "<group>"; };
+		84B5B8C31DDF47270008062B /* AsmCmd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsmCmd.h; sourceTree = "<group>"; };
+		84B5B8C51DDF7B5C0008062B /* commands.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commands.h; sourceTree = "<group>"; };
+		84C9B9FB1DDF807E00E0ED51 /* CommandsEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandsEnum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		842540EF1DBBA98100FCFC5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8425410D1DBBB20E00FCFC5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,35 +71,39 @@
 		842540E91DBBA98100FCFC5E = {
 			isa = PBXGroup;
 			children = (
-				842540F41DBBA98100FCFC5E /* MicrowaveProtoype */,
+				842540F41DBBA98100FCFC5E /* MicrowavePrototype */,
+				8479138E1DDE23D9009EE697 /* Data structures */,
+				842541111DBBB20E00FCFC5E /* Assembler */,
 				842540F31DBBA98100FCFC5E /* Products */,
+				847913921DDE3475009EE697 /* code.lal */,
 			);
 			sourceTree = "<group>";
 		};
 		842540F31DBBA98100FCFC5E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				842540F21DBBA98100FCFC5E /* MicrowaveProtoype */,
+				842540F21DBBA98100FCFC5E /* MicrowavePrototype */,
+				842541101DBBB20E00FCFC5E /* Assembler */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		842540F41DBBA98100FCFC5E /* MicrowaveProtoype */ = {
+		842540F41DBBA98100FCFC5E /* MicrowavePrototype */ = {
 			isa = PBXGroup;
 			children = (
 				842541031DBBAA0300FCFC5E /* Additional */,
 				842540FC1DBBA9F000FCFC5E /* CPU */,
+				84B5B8C31DDF47270008062B /* AsmCmd.h */,
 			);
+			name = MicrowavePrototype;
 			path = MicrowaveProtoype;
 			sourceTree = "<group>";
 		};
 		842540FC1DBBA9F000FCFC5E /* CPU */ = {
 			isa = PBXGroup;
 			children = (
-				842540FD1DBBAA0000FCFC5E /* HeapArray.h */,
-				842540FE1DBBAA0000FCFC5E /* main.cpp */,
-				842541001DBBAA0000FCFC5E /* Print.h */,
-				842541011DBBAA0000FCFC5E /* Stack.h */,
+				842541091DBBB19F00FCFC5E /* main.cpp */,
+				8479138F1DDE2509009EE697 /* CPU.h */,
 			);
 			name = CPU;
 			sourceTree = "<group>";
@@ -82,16 +112,39 @@
 			isa = PBXGroup;
 			children = (
 				842540FF1DBBAA0000FCFC5E /* MyException.h */,
+				842541001DBBAA0000FCFC5E /* Print.h */,
+				84C9B9FB1DDF807E00E0ED51 /* CommandsEnum.h */,
 			);
 			name = Additional;
+			sourceTree = "<group>";
+		};
+		842541111DBBB20E00FCFC5E /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				842541121DBBB20E00FCFC5E /* main.cpp */,
+				842541171DBBB35200FCFC5E /* Assembler.h */,
+				84B5B8C51DDF7B5C0008062B /* commands.h */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		8479138E1DDE23D9009EE697 /* Data structures */ = {
+			isa = PBXGroup;
+			children = (
+				842541081DBBB19F00FCFC5E /* HeapArray.h */,
+				8425410A1DBBB19F00FCFC5E /* Stack.h */,
+				847913901DDE26C9009EE697 /* Register.h */,
+			);
+			name = "Data structures";
+			path = MicrowaveProtoype;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		842540F11DBBA98100FCFC5E /* MicrowaveProtoype */ = {
+		842540F11DBBA98100FCFC5E /* MicrowavePrototype */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 842540F91DBBA98100FCFC5E /* Build configuration list for PBXNativeTarget "MicrowaveProtoype" */;
+			buildConfigurationList = 842540F91DBBA98100FCFC5E /* Build configuration list for PBXNativeTarget "MicrowavePrototype" */;
 			buildPhases = (
 				842540EE1DBBA98100FCFC5E /* Sources */,
 				842540EF1DBBA98100FCFC5E /* Frameworks */,
@@ -101,9 +154,26 @@
 			);
 			dependencies = (
 			);
-			name = MicrowaveProtoype;
+			name = MicrowavePrototype;
 			productName = MicrowaveProtoype;
-			productReference = 842540F21DBBA98100FCFC5E /* MicrowaveProtoype */;
+			productReference = 842540F21DBBA98100FCFC5E /* MicrowavePrototype */;
+			productType = "com.apple.product-type.tool";
+		};
+		8425410F1DBBB20E00FCFC5E /* Assembler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 842541141DBBB20E00FCFC5E /* Build configuration list for PBXNativeTarget "Assembler" */;
+			buildPhases = (
+				8425410C1DBBB20E00FCFC5E /* Sources */,
+				8425410D1DBBB20E00FCFC5E /* Frameworks */,
+				8425410E1DBBB20E00FCFC5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Assembler;
+			productName = Assembler;
+			productReference = 842541101DBBB20E00FCFC5E /* Assembler */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -120,9 +190,13 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					8425410F1DBBB20E00FCFC5E = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
-			buildConfigurationList = 842540ED1DBBA98100FCFC5E /* Build configuration list for PBXProject "MicrowaveProtoype" */;
+			buildConfigurationList = 842540ED1DBBA98100FCFC5E /* Build configuration list for PBXProject "MicrowavePrototype" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -134,7 +208,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				842540F11DBBA98100FCFC5E /* MicrowaveProtoype */,
+				842540F11DBBA98100FCFC5E /* MicrowavePrototype */,
+				8425410F1DBBB20E00FCFC5E /* Assembler */,
 			);
 		};
 /* End PBXProject section */
@@ -144,7 +219,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842541021DBBAA0000FCFC5E /* main.cpp in Sources */,
+				8425410B1DBBB19F00FCFC5E /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8425410C1DBBB20E00FCFC5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				842541131DBBB20E00FCFC5E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,10 +338,24 @@
 			};
 			name = Release;
 		};
+		842541151DBBB20E00FCFC5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		842541161DBBB20E00FCFC5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		842540ED1DBBA98100FCFC5E /* Build configuration list for PBXProject "MicrowaveProtoype" */ = {
+		842540ED1DBBA98100FCFC5E /* Build configuration list for PBXProject "MicrowavePrototype" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				842540F71DBBA98100FCFC5E /* Debug */,
@@ -267,13 +364,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		842540F91DBBA98100FCFC5E /* Build configuration list for PBXNativeTarget "MicrowaveProtoype" */ = {
+		842540F91DBBA98100FCFC5E /* Build configuration list for PBXNativeTarget "MicrowavePrototype" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				842540FA1DBBA98100FCFC5E /* Debug */,
 				842540FB1DBBA98100FCFC5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		842541141DBBB20E00FCFC5E /* Build configuration list for PBXNativeTarget "Assembler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				842541151DBBB20E00FCFC5E /* Debug */,
+				842541161DBBB20E00FCFC5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
