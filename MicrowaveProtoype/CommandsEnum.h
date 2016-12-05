@@ -3,7 +3,7 @@
 #ifndef commandsEnum_h
 #define commandsEnum_h
 
-enum commands {
+enum CommandsEnum {
     CMD_PUSH = 0,
     CMD_POP  = 1,
     CMD_ADD  = 2,

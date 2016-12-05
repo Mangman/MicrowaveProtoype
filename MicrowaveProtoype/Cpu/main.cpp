@@ -8,37 +8,12 @@
 
 #include "MyException.h"
 
-#include "FileReader.h"
-
 #include "CPU.h"
 int main()
 {
     try
     {
-//        Stack <int> a(12);
-//        a.dump();
-//        a.push (15);
-//        a.pop();
-//        
-//        a.dump();
-//        a.push(228);
-//        a.push(4);
-//        a.push(228);
-//        a.push(4);
-//        a.push(228);
-//        a.push(4);
-//        a.push(228);
-//        a.push(4);
-//        a.push(228);
-//        a.push(4);
-//        a.push(228);
-//        a.push(4);
-//        a.push(228);
-//        a.push(4);
-//        a.dump();
-
         CPU<int, int, 5> cpu("output.tttt");
-        
     }
     
     catch (my_exception& a)
