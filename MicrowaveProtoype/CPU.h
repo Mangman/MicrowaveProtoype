@@ -9,12 +9,13 @@
 #include "CommandsEnum.h"
 //#include "FileReader.h"
 
-template <typename stackValType, typename registerType, int numberOfRegisters>
+template <typename stackValType, int numberOfRegisters>
 class CPU {
 private :
     Stack<stackValType> cpu_stack;
     char* codes;
-    HeapArray<Register<registerType>> registers;
+    long codes_len;
+    HeapArray<Register<stackValType>> registers;
     
 public :
     
@@ -30,9 +31,9 @@ public :
     bool execute();
 };
 
-template <typename stackValType, typename registerType, int numberOfRegisters>
-CPU<stackValType, registerType, numberOfRegisters>::CPU(const char* inputFilePath):
-    cpu_stack(Stack<stackValType>()), codes(nullptr), registers(HeapArray<Register<registerType>>(numberOfRegisters)) {
+template <typename stackValType, int numberOfRegisters>
+CPU<stackValType, numberOfRegisters>::CPU(const char* inputFilePath):
+    cpu_stack(Stack<stackValType>()), codes(nullptr), registers(HeapArray<Register<stackValType>>(numberOfRegisters)) {
         //  Только чиселки
         for (int i = 0; i < numberOfRegisters; i++) {
             registers[i].push(0);
@@ -44,69 +45,101 @@ CPU<stackValType, registerType, numberOfRegisters>::CPU(const char* inputFilePat
         long int fileSize = ftell(file);
         rewind (file);
         
-        codes = new char [fileSize/sizeof(char)];
+        codes_len = fileSize/sizeof(char);
+        codes = new char [codes_len];
         
-        fread(codes, sizeof(char), fileSize/sizeof(char), file);
+        fread(codes, sizeof(char), codes_len, file);
 }
 
-template <typename stackValType, typename registerType, int numberOfRegisters>
-bool CPU<stackValType, registerType, numberOfRegisters>::execute() {
+template <typename stackValType, int numberOfRegisters>
+bool CPU<stackValType, numberOfRegisters>::execute() {
     for (int i = 0; codes[i] != CommandsEnum::CMD_END; i++) {
         switch (codes[i]) {
             case CommandsEnum::CMD_PUSH: {
-                const char mode = codes[i+1];
+                const char mode = codes[++i];
                 if (mode == 0) {
-                    const char val = *((int*)&(codes[i+=2]));
+                    const char val =  *(int*) &codes[++i];
                     cpu_stack.push(val);
                     
-                    i += sizeof(int)/sizeof(char); // 4 вроде
+                    i += sizeof(int)/sizeof(char);
+                    i--; // компенсация
                 }
                 else if (mode == 1) {
                     const char regNumber = codes[++i];
-                    const registerType regValue = registers[regNumber].pop();
+                    if (regNumber > numberOfRegisters) {
+                        throw my_exception("No such register found", NULL, PLACE);
+                    }
+                    const stackValType regValue = registers[regNumber].pop();
                     
                     cpu_stack.push(regValue);
+                }
+                else {
+                    throw my_exception("No such push mode found.", NULL, PLACE);
                 }
                 break;
             }
             case CommandsEnum::CMD_POP: {
-                
+                const char mode = codes[++i];
+                if (mode == 0) {
+                    // skipping 0 value
+                    i += 1;
+                }
+                else if (mode == 1) {
+                    const char regNumber = codes[++i];
+                    
+                    if (regNumber > numberOfRegisters) {
+                        throw my_exception("No such register found", NULL, PLACE);
+                    }
+                    
+                    stackValType val = cpu_stack.pop();
+                    registers[regNumber].push(val);
+                    
+                }
+                else {
+                    throw my_exception("No such pop mode found.", NULL, PLACE);
+                }
+
                 break;
             }
             case CommandsEnum::CMD_ADD: {
-                
+                //Спросить Илью Рудольфовича про оператор
+                cpu_stack.push(cpu_stack.pop()+cpu_stack.pop());
                 break;
             }
             case CommandsEnum::CMD_SUB: {
-                
+                cpu_stack.push(cpu_stack.pop()-cpu_stack.pop());
                 break;
             }
             case CommandsEnum::CMD_MUL: {
-                
+                cpu_stack.push(cpu_stack.pop()*cpu_stack.pop());
                 break;
             }
             case CommandsEnum::CMD_DIV: {
-                
+                cpu_stack.push(cpu_stack.pop()/cpu_stack.pop());
                 break;
             }
             case CommandsEnum::CMD_JMP: {
-                
-                break;
-            }
-            case CommandsEnum::CMD_LBL: {
-                
+                char adress = codes[++i];
+                if (i > codes_len) {
+                    throw my_exception("Jmp adress out of range.", NULL, PLACE);
+                }
+                printf ("Jumped to %d\n", adress);
+                i = adress-1;
                 break;
             }
             case CommandsEnum::CMD_END: {
                 printf("execution ended.");
+                return true;
                 break;
             }
             default: {
+                printf ("ldldl\n");
                 throw my_exception("No command found.", NULL, PLACE);
                 break;
             }
         }
     }
+    return true;
 }
 
 #endif /* CPU_h */

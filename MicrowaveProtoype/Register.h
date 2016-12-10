@@ -29,10 +29,7 @@ void Register<valType>::push(valType value) {
 
 template <typename valType>
 valType Register<valType>::pop() {
-    if (value == NULL) throw my_exception("The register, you are trying to pop from, is empty.", nullptr, PLACE);
-    else {
-        return value;
-    }
+    return value;
 }
 
 #endif /* Register_h */

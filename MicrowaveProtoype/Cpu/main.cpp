@@ -13,7 +13,9 @@ int main()
 {
     try
     {
-        CPU<int, int, 5> cpu("output.tttt");
+        printf ("started\n");
+        CPU<int, 5> cpu("output.tttt");
+        cpu.execute();
     }
     
     catch (my_exception& a)

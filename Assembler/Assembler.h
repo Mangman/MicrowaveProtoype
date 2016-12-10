@@ -71,7 +71,7 @@ bool Assembler::assemble() {
     for (;;) {
         fscanf(file, "%s", currentWord);
         
-        if (strcmp(currentWord, "push") == 0) {        // cmd | mode | value(if 0 mode) ir registerNum (if 1 mode)
+        if (strcmp(currentWord, "push") == 0) {        // cmd | mode | value(if 0 mode) or registerNum (if 1 mode)
             codes[0] = CommandsEnum::CMD_PUSH;
             fwrite(codes, sizeof(char), 1, output);
             
@@ -81,7 +81,7 @@ bool Assembler::assemble() {
                 codes[0] = 1;
                 fwrite(codes, sizeof(char), 1, output);
                 
-                codes[0] = currentWord[0];
+                codes[0] = currentWord[0]-'a';
                 fwrite(codes, sizeof(char), 1, output);
             }
             else {
@@ -91,9 +91,9 @@ bool Assembler::assemble() {
                 char* end;
                 codes[0] = int(strtol(currentWord, &end, 10));
                 fwrite(codes, sizeof(int), 1, output);
-                }
+            }
         }
-        else if (strcmp(currentWord, "pop") == 0) {    // cmd | mode | registerNum(or 0 if 0 mode)
+        else if (strcmp(currentWord, "pop") == 0) {    // cmd | mode | registerNum(if 1 mode) or void(0 in binary) (if 0 mode)
             codes[0] = CommandsEnum::CMD_POP;
             fwrite(codes, sizeof(char), 1, output);
             
@@ -105,7 +105,7 @@ bool Assembler::assemble() {
                 codes[0] = 1;
                 fwrite(codes, sizeof(char), 1, output);
                 
-                codes[0] = currentWord[0];
+                codes[0] = currentWord[0]-'a';
                 fwrite(codes, sizeof(char), 1, output);
             }
             else {
@@ -184,7 +184,7 @@ bool Assembler::fillLabels() {
             currentWord = oldPtr;
         }
         else if (strcmp(currentWord, "pop") == 0) {
-            i += 3;
+            i += 3; // 3 char
             
             const unsigned long currentPos = ftell(file);
             
@@ -195,7 +195,7 @@ bool Assembler::fillLabels() {
             }
         }
         else if (strcmp(currentWord, "push") == 0) {
-            i += 3;
+            i += 2+4;// 2 char, 1 int
             fscanf(file, "%s", currentWord);
         }
         else if (strcmp(currentWord, "jmp") == 0) {

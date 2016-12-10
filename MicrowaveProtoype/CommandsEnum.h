@@ -12,7 +12,7 @@ enum CommandsEnum {
     CMD_DIV  = 5,
     CMD_JMP  = 6,
     CMD_LBL  = 7,
-    CMD_END  = 0xFF
+    CMD_END  = 8// проблемсы 0xFF
 };
 
 
